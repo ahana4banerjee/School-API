@@ -7,7 +7,11 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-app.use('/', schoolRoutes);
+app.get('/', (req, res) => {
+  res.send('Backend working');
+});
+
+app.use('/api', schoolRoutes);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

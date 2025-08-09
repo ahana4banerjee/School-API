@@ -1,4 +1,4 @@
-import pool from '../db.js';
+import pool from '../db/db.js';
 
 function haversine(lat1, lon1, lat2, lon2) {
   const toRad = (deg) => deg * Math.PI / 180;

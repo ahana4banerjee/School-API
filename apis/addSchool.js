@@ -1,5 +1,5 @@
 import Joi from 'joi';
-import pool from '../db.js';
+import pool from '../db/db.js';
 
 const schoolSchema = Joi.object({
   name: Joi.string().max(255).required(),
