@@ -1,7 +1,7 @@
 import Joi from 'joi';
 import pool from '../db/db.js';
 
-const schoolSchema = Joi.object({
+const railwaySchema = Joi.object({
   name: Joi.string().max(255).required(),
   address: Joi.string().max(500).required(),
   latitude: Joi.number().min(-90).max(90).required(),
@@ -10,7 +10,7 @@ const schoolSchema = Joi.object({
 
 export const addSchool = async (req, res) => {
   try {
-    const { error, value } = schoolSchema.validate(req.body);
+    const { error, value } = railwaySchema.validate(req.body);
     if (error) {
       return res.status(400).json({
         success: false,
@@ -33,6 +33,6 @@ export const addSchool = async (req, res) => {
     console.error('Error adding school:', err);
     res.status(500).json({ 
         success: false,
-        error: 'Internal server error' });
+        message: err.message });
   }
 };
